@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OLED CSS Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* === OLED stylesheet from earlier (shortened for demo) === */
+    :root {
+      --bg: #000;
+      --fg: #e8e8e8;
+      --accent: #00ffff;
+      --accent-2: #ff00ff;
+      --glow-a: rgba(0,255,255,.35);
+      --glow-b: rgba(255,0,255,.35);
+      --r-2: 14px;
+      --hairline: 1px solid rgba(255,255,255,.06);
+      --space-3: 1rem; --space-4: 1.4rem;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.55;
+    }
+    h1 { font-size: 2.2rem; text-shadow: 0 0 12px var(--glow-b), 0 0 28px var(--glow-a); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-2); text-shadow: 0 0 8px var(--glow-b); }
+
+    .navbar {
+      position: sticky; top: 0;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(10px);
+      border-bottom: var(--hairline);
+    }
+    .navbar .inner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .9rem 1rem;
+    }
+    .navbar .nav { display: flex; gap: 1rem; }
+    .navbar .nav a { color: #bbb; padding: .5rem; border-radius: 8px; }
+    .navbar .nav a:hover { background: rgba(255,255,255,.08); color: #fff; }
+
+    .hero {
+      padding: 4rem 1rem;
+      text-align: center;
+      background:
+        radial-gradient(1200px 400px at 10% -10%, rgba(0,255,255,.12), transparent 60%),
+        radial-gradient(1200px 400px at 90% 110%, rgba(255,0,255,.12), transparent 60%),
+        #0a0a0a;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #000; font-weight: bold;
+      border: none; border-radius: var(--r-2);
+      padding: .8rem 1.1rem;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 15px var(--glow-a);
+    }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--glow-a); }
+
+    .card {
+      background: #111;
+      border-radius: var(--r-2);
+      padding: var(--space-4);
+      margin: var(--space-3);
+      box-shadow: 0 0 20px rgba(0,255,255,0.15);
+    }
+
+    .form { display: grid; gap: .7rem; max-width: 400px; margin: 2rem auto; }
+    .input {
+      background: #111; border: var(--hairline); color: var(--fg);
+      padding: .7rem; border-radius: var(--r-2);
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: .7rem 1rem; border-bottom: var(--hairline); text-align: left; }
+    th { color: #bbb; }
+    tr:hover { background: rgba(255,255,255,.05); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="inner">
+      <div class="brand">🌌 OLED Demo</div>
+      <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Docs</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to OLED UI</h1>
+    <p>A cyber-neon design system with true blacks and glowing accents.</p>
+    <button class="btn">Get Started</button>
+  </section>
+
+  <!-- Cards -->
+  <section class="cards" style="display:flex; flex-wrap:wrap; justify-content:center;">
+    <div class="card">
+      <h2>Card One</h2>
+      <p>This is a card with OLED-friendly styling.</p>
+    </div>
+    <div class="card">
+      <h2>Card Two</h2>
+      <p>Pure black background + neon accents = pop!</p>
+    </div>
+    <div class="card">
+      <h2>Card Three</h2>
+      <p>Looks great on AMOLED & OLED screens.</p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section>
+    <form class="form">
+      <label>
+        <span>Email</span>
+        <input type="email" class="input" placeholder="you@example.com">
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" class="input" placeholder="••••••••">
+      </label>
+      <button class="btn">Sign In</button>
+    </form>
+  </section>
+
+  <!-- Table -->
+  <section class="card">
+    <h2>Example Table</h2>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Status</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ada Lovelace</td><td>Active</td><td>Admin</td></tr>
+        <tr><td>Alan Turing</td><td>Offline</td><td>Member</td></tr>
+        <tr><td>Grace Hopper</td><td>Active</td><td>Moderator</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
